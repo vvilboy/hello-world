@@ -1,3 +1,4 @@
+//после изменения в ветке мастер
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>  
