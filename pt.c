@@ -58,10 +58,9 @@ cur = head;
 cur2 = cur->next;
 while(cur2 != NULL){
 	if(cur ->a == 32 && cur2 ->a == 32){
-		cur = cur2;
-		cur2 = cur2->next;
-		cur->prev = cur->prev->prev;
-		cur->prev->prev->next = cur;
+		cur->next = cur2->next;
+	  cur2->next->prev = cur;
+	  cur2= cur->next;
 	} else {cur = cur2;
 			cur2 = cur2->next;
 		}
