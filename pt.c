@@ -46,11 +46,19 @@ printf("\n ");
 //--------------------------------------------------------УСЛОВИЕ---------------//
 // удаление пробелов cпереди------------------------//
 cur = head;
-
 while(cur->a == 32){
 	cur = cur->next;
+	cur->prev = NULL;
 	head = cur;
 	}
+
+	// удаление пробелов cзади------------------------//
+cur = top;
+while(cur->a == 32){
+	cur  = cur->prev;
+	cur->next = NULL;
+	top = cur;
+}
 
 // удаление пробелов лишних-------------------------//
 
@@ -64,7 +72,7 @@ while(cur2 != NULL){
 	} else {cur = cur2;
 			cur2 = cur2->next;
 		}
-		
+
 }
 //выведем после удаления лишних пробелов-----------//
 cur = head;
@@ -84,8 +92,9 @@ cur2 = top;
 int g = 0, q = 0;
 while(cur2->a != 32){
 	cur2 = cur2->prev;
-	top = cur2;
-}
+	}
+	cur2 = cur2->next;
+	top = cur2->prev;
 while(cur2 != NULL){
 	if(cur2->a ==cur->a) g++;
 	q++;
@@ -97,6 +106,7 @@ if(g == q){
 	head = cur;
 	head->prev = NULL;
 	top ->next = NULL;
+	cur2 = top;
 }
 
 
@@ -109,7 +119,7 @@ while(cur != NULL){
 	k++;
 	cur = cur->next;
 }
-printf("\n ");
+printf("\n "); 
 
 free(p);
 system("pause");
