@@ -65,6 +65,7 @@ while(cur2 != NULL){
 	} else {cur = cur2;
 			cur2 = cur2->next;
 		}
+		
 }
 //выведем после удаления лишних пробелов-----------//
 cur = head;
